@@ -1,0 +1,5 @@
+10	Warszawa
+11	Poznan
+12	Krakow
+13	Gdansk
+14	Bialystok

@@ -1,0 +1,29 @@
+100	Kubusia Puchatka	10
+101	Kangurka	10
+102	Prosiaczka	10
+103	Tygryska	10
+104	Klapouchego	10
+
+200	Koziolka Matolka	11
+201	Piotrusia Pana	11
+202	Dzwoneczka	11
+203	Muminkow	11
+204	Ani z Zielonego Wzgorza	11
+
+300	Misia Uszatka	12
+301	Mikolajka	12
+302	Brzydzkie Kaczatko	12
+303	Calineczka	12
+304	Krolowa Sniegu	12
+
+400	Maly Ksiaze	13
+401	Polnocna	13
+402	Wschodnia	13
+403	Poludniowa	13
+404	Zachodnia	13
+
+500	Aleksandryjska	14
+501	Kazimierza Wielkiego	14
+502	Jagielly	14
+503	Stefana Batorego	14
+504	Zygmunta Wazy	14
