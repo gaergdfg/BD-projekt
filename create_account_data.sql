@@ -1,11 +1,11 @@
 drop table uzytkownicy;
 
 create table uzytkownicy(
-login varchar2(20) not null,
-haslo varchar2(20) not null,
-imie varchar2(30) not null,
-nazwisko varchar2(30) not null,
-czy_admin number(1) not null
+	login varchar2(20) not null,
+	haslo varchar2(20) not null,
+	imie varchar2(30) not null,
+	nazwisko varchar2(30) not null,
+	czy_admin number(1) not null
 );
 
 create or replace trigger validate_user_remove

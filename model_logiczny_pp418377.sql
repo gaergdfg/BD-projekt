@@ -18,7 +18,8 @@ create table biblioteka(
 
 create table ksiazka(
 	id_ksiazki int not null primary key,
-	tytul varchar2(50) not null,
+	autor varchar2(50) not null,
+	tytul varchar2(100) not null,
 	liczba number(2) not null,
 	przedzial int not null,
 	id_biblioteki int references biblioteka(id_biblioteki)

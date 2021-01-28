@@ -18,7 +18,8 @@ create table biblioteka(
 
 create table ksiazka(
 	id_ksiazki int not null primary key,
-	tytul varchar2(50) not null,
+	autor varchar2(50) not null,
+	tytul varchar2(100) not null,
 	liczba number(2) not null,
 	przedzial int not null,
 	id_biblioteki int references biblioteka(id_biblioteki)
@@ -151,256 +152,491 @@ insert into biblioteka values (504, 'Biblioteka Zygmunta Wazy', 14);
 
 -- ============================== KSIAZKA ==============================
 
-insert into ksiazka values ('Margaret Wise Brown', 'Dobranoc, księżycu', 4, 1, 200);
-insert into ksiazka values ('Jan Brzechwa', 'Wiersze i bajki', 3, 1, 303);
-insert into ksiazka values ('Danuta Gellnerowa', 'Cukrowe miasteczko', 5, 1, 401);
-insert into ksiazka values ('Czesław Janczarski', 'Miś Uszatek', 4, 1, 403);
-insert into ksiazka values ('Czesław Janczarski', 'Gdzie mieszka bajeczka', 2, 1, 101);
-insert into ksiazka values ('Czesław Janczarski', 'O smoku Wawelskim', 5, 1, 404);
-insert into ksiazka values ('Astrid Lindgren', 'Lotta z ulicy Awanturników', 2, 1, 200);
-insert into ksiazka values ('Sam Mc Bratney', 'Nawet nie wiesz, jak bardzo Cię kocham', 3, 1, 203);
-insert into ksiazka values ('Beata Ostrowicka', 'Lulaki, Pan Czekoladka i przedszkole', 4, 1, 304);
-insert into ksiazka values ('Beata Ostrowicka', 'Ale ja tak chcę!', 4, 1, 204);
-insert into ksiazka values ('Joanna Papuzińska', 'Śpiące wierszyki', 4, 1, 102);
-insert into ksiazka values ('Eliza Piotrowska', 'Bajka o drzewie', 2, 1, 202);
-insert into ksiazka values ('Eliza Piotrowska', 'Bajka o słońcu', 5, 1, 204);
-insert into ksiazka values ('Renata Piątkowska', 'Opowiadania z piaskownicy', 2, 1, 402);
-insert into ksiazka values ('Małgorzata Strzałkowska', 'Zielony, żółty, rudy, brązowy', 4, 1, 503);
-insert into ksiazka values ('Julian Tuwim', 'Wiersze dla dzieci', 4, 1, 401);
 
-insert into ksiazka values ('Kim Fupz Aakeson', 'Esben i duch Dziadka', 4, 2, 504);
-insert into ksiazka values ('Hans Christian Andersen', 'Baśnie', 4, 2, 104);
-insert into ksiazka values ('Wiera Badalska', 'Ballada o kapryśnej królewnie', 2, 2, 304);
-insert into ksiazka values ('Ivona Březinová', 'Cukierek dla dziadka Tadka', 5, 2, 502);
-insert into ksiazka values ('Jan Brzechwa', 'Pan Drops i jego trupa', 5, 2, 400);
-insert into ksiazka values ('Wanda Chotomska', 'Wiersze', 3, 2, 201);
-insert into ksiazka values ('Wanda Chotomska', 'Pięciopsiaczki', 5, 2, 303);
-insert into ksiazka values ('Carlo Collodi', 'Pinokio', 3, 2, 400);
-insert into ksiazka values ('VaclavĆtvrtek', 'Bajki z mchu i paproci', 4, 2, 501);
-insert into ksiazka values ('VaclavĆtvrtek', 'O gajowym Chrobotku', 3, 2, 400);
-insert into ksiazka values ('VaclavĆtvrtek', 'Podróże furmana Szejtroczka', 2, 2, 400);
-insert into ksiazka values ('Iwona Czarkowska', 'Biuro zagubionych zabawek', 3, 2, 203);
-insert into ksiazka values ('Barbara Gawryluk', 'Dżok, legenda o psiej wierności', 4, 2, 502);
-insert into ksiazka values ('Eva Janikovszky', 'Gdybym był dorosły', 5, 2, 100);
-insert into ksiazka values ('Czesław Janczarski', 'Jak Wojtek został strażakiem', 4, 2, 404);
-insert into ksiazka values ('Grzegorz Janusz', 'Misiostwo świata', 3, 2, 401);
-insert into ksiazka values ('Hanna Januszewska', 'O Pleciudze', 2, 2, 203);
-insert into ksiazka values ('Kęstutis Kasparavičius', 'Mała zima', 2, 2, 304);
-insert into ksiazka values ('Maria Krueger', 'Apolejka i jej osiołek', 3, 2, 300);
-insert into ksiazka values ('Lucyna Krzemieniecka', 'O Jasiu Kapeluszniku', 5, 2, 404);
-insert into ksiazka values ('Tadeusz Kubiak', 'Wiersze na dzień dobry', 2, 2, 504);
-insert into ksiazka values ('Åsa Lind', 'Piaskowy Wilk', 5, 2, 302);
-insert into ksiazka values ('Astrid Lindgren', 'Pippi Pończoszanka', 3, 2, 403);
-insert into ksiazka values ('Astrid Lindgren', 'Emil ze Smalandii', 3, 2, 301);
-insert into ksiazka values ('Beata Majchrzak', 'Opowieść o błękitnym psie, czyli o rzeczach trudnych dla dzieci', 3, 2, 101);
-insert into ksiazka values ('Kornel Makuszyński', 'Przygody Koziołka Matołka', 4, 2, 304);
-insert into ksiazka values ('Patric Mc Donnell', 'TEK. Nowoczesny jaskiniowiec', 5, 2, 304);
-insert into ksiazka values ('Małgorzata Musierowicz', 'Znajomi z zerówki', 5, 2, 501);
-insert into ksiazka values ('Alan A. Milne', 'Kubuś Puchatek, Chatka Puchatka', 4, 2, 203);
-insert into ksiazka values ('Łukasz Olszacki', 'Bajka o tym, jak błędny rycerz nie uratował królewny, a smok przeszedł na wegetarianizm', 4, 2, 300);
-insert into ksiazka values ('Renata Piątkowska', 'Na wszystko jest sposób', 5, 2, 104);
-insert into ksiazka values ('Renata Piątkowska', 'Nie ma nudnych dni', 2, 2, 200);
-insert into ksiazka values ('Gianni Rodari', 'Bajki przez telefon(w tym Historyjki o Alicji, która zawsze wpadała w kłopot)', 5, 2, 403);
-insert into ksiazka values ('Zofia Rogoszówna', 'Dzieci Pana Majstra', 5, 2, 201);
-insert into ksiazka values ('Małgorzata Strzałkowska', 'Leśne Głupki', 3, 2, 202);
-insert into ksiazka values ('Małgorzata Strzałkowska', 'Wiersze do poduchy, Wyliczanki z pustej szklanki', 4, 2, 501);
-insert into ksiazka values ('Anna Świrszczyńska', 'Dziwny tygrys', 4, 2, 303);
-insert into ksiazka values ('Anna Świrszczyńska', 'O chciwym Achmedzie', 5, 2, 502);
-insert into ksiazka values ('Julian Tuwim', 'Pan Maluśkiewicz i wieloryb', 3, 2, 201);
-insert into ksiazka values ('Emilia Waśniowska', 'Kiedy słychać ptaki', 5, 2, 404);
-insert into ksiazka values ('Danuta Wawiłow', 'Wiersze', 2, 2, 400);
-insert into ksiazka values ('Max Velthuijs', 'Żabka i obcy', 5, 2, 401);
-insert into ksiazka values ('Katarzyna Ziemnicka', 'Wielka wyprawa pirat Nata', 4, 2, 203);
+insert into ksiazka values (1000, 'Margaret Wise Brown', ' Dobranoc, księżycu', 4, 1, 103);
 
-insert into ksiazka values ('Heather Amery', 'Mity greckie dla najmłodszych', 5, 3, 403);
-insert into ksiazka values ('Ludwig Bemelmans', 'Madeline w Paryżu', 4, 3, 102);
-insert into ksiazka values ('Marcin Brykczyński', 'Ni pies, ni wydra', 3, 3, 104);
-insert into ksiazka values ('Marcin Brykczyński', '8 podziękowań, Czarno na białym', 3, 3, 501);
-insert into ksiazka values ('Marcin Brykczyński', 'Skąd się biorą dzieci', 3, 3, 301);
-insert into ksiazka values ('Marcin Brykczyński', 'Czary', 3, 3, 303);
-insert into ksiazka values ('Jan Brzechwa', 'Pchła Szachrajka', 5, 3, 501);
-insert into ksiazka values ('Jan Brzechwa', 'Szelmostwa Lisa Witalisa', 3, 3, 501);
-insert into ksiazka values ('Jan Brzechwa', 'Baśń o korsarzu Palemonie', 3, 3, 401);
-insert into ksiazka values ('Sebastian Cichocki', 'S.Z.T.U.K.A. Szalenie zajmując twory utalentowanych i krnąbrnych artystów', 4, 3, 403);
-insert into ksiazka values ('Wanda Chotomska', 'Wanda Chotomska dzieciom', 2, 3, 504);
-insert into ksiazka values ('Maurice Druon', 'Magiczny świat Tistu ', 2, 3, 504);
-insert into ksiazka values ('Jerzy Ficowski', 'Gałązka z drzewa słońca', 4, 3, 100);
-insert into ksiazka values ('Jerzy Ficowski', 'Syrenka', 3, 3, 301);
-insert into ksiazka values ('Jerzy Ficowski', 'Tęcza na niedzielę (i inne wiersze)', 4, 3, 202);
-insert into ksiazka values ('Dorota Gellner', 'Krawcowe', 3, 3, 200);
-insert into ksiazka values ('Dorota Gellner', 'Zając', 2, 3, 404);
-insert into ksiazka values ('Kamil Giżycki', 'Wielkie czyny szympansa Bajbuna Mądrego', 3, 3, 104);
-insert into ksiazka values ('Frances Hodgson Burnett', 'Mała księżniczka', 2, 3, 500);
-insert into ksiazka values ('P.P.Jerszow', 'Konik Garbusek', 2, 3, 401);
-insert into ksiazka values ('Roksana Jędrzejewska', 'Wróbel', 4, 3, 104);
-insert into ksiazka values ('Grzegorz Kasdepke', 'Detektyw Pozytywka', 3, 3, 402);
-insert into ksiazka values ('Erich Kästner', '35 maja', 3, 3, 501);
-insert into ksiazka values ('Ludwik Jerzy Kern', 'Wiersze dla dzieci', 4, 3, 303);
-insert into ksiazka values ('Ludwik Jerzy Kern', 'Ludwik Jerzy Kern dzieciom', 4, 3, 501);
-insert into ksiazka values ('Ludwik Jerzy Kern', 'Ferdynand Wspaniały', 4, 3, 401);
-insert into ksiazka values ('Astrid Lindgren', 'Dzieci z Bullerbyn', 3, 3, 501);
-insert into ksiazka values ('Astrid Lindgren', 'Mio, mój Mio', 3, 3, 400);
-insert into ksiazka values ('Edith Nesbit', 'Pięcioro dzieci i coś', 2, 3, 402);
-insert into ksiazka values ('Edith Nesbit', 'Historia Amuletu', 3, 3, 100);
-insert into ksiazka values ('Edith Nesbit', 'Feniks i dywan', 5, 3, 401);
-insert into ksiazka values ('Roman Pisarski', 'Wyrwidąb i Waligóra', 2, 3, 303);
-insert into ksiazka values ('Otfried Preussler', 'Malutka czarownica', 4, 3, 203);
-insert into ksiazka values ('Gianni Rodari', 'Interesy Pana Kota', 4, 3, 500);
-insert into ksiazka values ('Gianni Rodari', 'Opowieśćo Cebulku', 4, 3, 401);
-insert into ksiazka values ('Gianni Rodari', 'Gelsomino w kraju Kłamczuchów', 4, 3, 500);
-insert into ksiazka values ('Michael Roher', 'Wędrowne ptaki', 3, 3, 504);
-insert into ksiazka values ('Michał Rusinek', 'Wierszyki domowe', 4, 3, 200);
-insert into ksiazka values ('Michał Rusinek', 'Wierszyki rodzinne', 4, 3, 303);
-insert into ksiazka values ('Igor Sikirycki', 'Jak drwal królem został', 2, 3, 500);
-insert into ksiazka values ('Barbara Tylicka', 'Generał Ciupinek', 5, 3, 500);
-insert into ksiazka values ('Anne Cath. Westly', '8+2 i ciężarówka', 4, 3, 404);
-insert into ksiazka values ('Anne Cath. Westly', '8+2 i domek w lesie', 3, 3, 102);
-insert into ksiazka values ('E.B. White', 'Pajęczyna Charlotty', 3, 3, 300);
-insert into ksiazka values ('Magdalena Wiśniewska', 'Mały Saj i wielka przygoda', 3, 3, 404);
-insert into ksiazka values ('Piotr Wojciechowski', 'Z kufra Pana Pompuła', 2, 3, 304);
-insert into ksiazka values ('Piotr Wojciechowski', ' Bajki żółtego psa', 3, 3, 204);
-insert into ksiazka values ('Praca zbiorowa', 'Śpiewająca Lipka. Baśnie Słowian Zachodnich', 5, 3, 201);
+insert into ksiazka values (1001, 'Jan Brzechwa', ' Wiersze i bajki', 2, 1, 100);
 
-insert into ksiazka values ('Edmund de Amicis', 'Serce', 4, 4, 500);
-insert into ksiazka values ('Zbigniew Batko', 'Z powrotem, czyli fatalne skutki niewłaściwych lektur', 3, 4, 403);
-insert into ksiazka values ('Paweł Beręsewicz', 'Czy wojna jest dla dziewczyn?', 2, 4, 103);
-insert into ksiazka values ('Paweł Beręsewicz', 'Jak zakochałem Kaśkę Kwiatek', 2, 4, 104);
-insert into ksiazka values ('Paweł Beręsewicz', 'Noskawery', 2, 4, 101);
-insert into ksiazka values ('Paul Berna', 'Rycerze złotego runa', 3, 4, 201);
-insert into ksiazka values ('Marcin Brykczyński', 'W każdym z nas są drzwi do nieba', 5, 4, 501);
-insert into ksiazka values ('Marcin Brykczyński', 'Jak się nie bać ortografii', 3, 4, 202);
-insert into ksiazka values ('Marcin Brykczyński', 'Z deszczu pod rynnę', 2, 4, 501);
-insert into ksiazka values ('Marcin Brykczyński', 'Frances Hodgson Burnett', 5, 4, 204);
-insert into ksiazka values ('Andrew Clements', 'Fryndel', 4, 4, 300);
-insert into ksiazka values ('Iwona Chmielewska', 'Pamiętnik Blumki', 4, 4, 203);
-insert into ksiazka values ('Roald Dahl', 'Matylda', 3, 4, 301);
-insert into ksiazka values ('Joanna Fabicka', 'Rutka', 5, 4, 301);
-insert into ksiazka values ('Anna Kamieńska', 'Książka nad książkami', 2, 4, 200);
-insert into ksiazka values ('Emilia Kiereś', 'Brat', 5, 4, 402);
-insert into ksiazka values ('Rudyard Kipling', 'Księga dżungli', 5, 4, 504);
-insert into ksiazka values ('Eric Knight', 'Lassie, wróć!', 5, 4, 404);
-insert into ksiazka values ('Jan Izydor Korzeniowski', 'Chłopcy z zielonych stawów', 5, 4, 101);
-insert into ksiazka values ('Lena Ledoff i Przemysław Dąbrowski', 'My, Psy, czyli czapka admirała Yamamoto', 5, 4, 204);
-insert into ksiazka values ('Astrid Lindgren', 'Bracia Lwie Serce', 3, 4, 401);
-insert into ksiazka values ('Astrid Lindgren', 'Rasmus i włóczęga', 5, 4, 403);
-insert into ksiazka values ('Clive Staples Lewis', 'Opowieści z Narnii', 4, 4, 204);
-insert into ksiazka values ('Olga Masiuk', 'Lenka, Fryderyk i podróże', 2, 4, 204);
-insert into ksiazka values ('Olga Masiuk', 'Tydzień Konstancji', 4, 4, 504);
-insert into ksiazka values ('Anna Onichimowska', 'Dzień czekolady', 3, 4, 100);
-insert into ksiazka values ('Ida Pierelotkin', 'Ala Betka', 4, 4, 304);
-insert into ksiazka values ('Renata Piątkowska', 'Wszystkie moje mamy', 3, 4, 403);
-insert into ksiazka values ('Renata Piątkowska', 'Hebanowe serce', 2, 4, 403);
-insert into ksiazka values ('Gianni Rodari', 'Był sobie dwa razy baron Lamberto', 4, 4, 502);
-insert into ksiazka values ('Katarzyna Ryrych', 'Łopianowe pole', 4, 4, 301);
-insert into ksiazka values ('Katarzyna Ryrych', 'Koniec świata nr 13', 3, 4, 200);
-insert into ksiazka values ('Annie M.G.Schmidt', 'Minu ', 4, 4, 401);
-insert into ksiazka values ('Barbara Stenka', 'Masło przygodowe', 3, 4, 202);
-insert into ksiazka values ('Małgorzata Strzałkowska', 'Zbzikowane wierszyki łamiące języki, Pejzaż z gżegżółką', 5, 4, 402);
-insert into ksiazka values ('Mark Twain', 'Przygody Tomka Sawyera', 3, 4, 304);
-insert into ksiazka values ('Mark Twain', 'Przygody Hucka, Królewicz i żebrak', 4, 4, 501);
-insert into ksiazka values ('Adam Wajrak', 'Wielka księga prawdziwych tropicieli', 5, 4, 500);
-insert into ksiazka values ('Emilia Waśniowska', 'Pamiątki Babuni', 5, 4, 101);
-insert into ksiazka values ('Łukasz Wierzbicki', 'Afryka Kazika,Dziadeki Niedźwiadek, Machiną przez Chiny', 3, 4, 102);
-insert into ksiazka values ('Rafał Witek', 'Klub latających ciotek', 4, 4, 504);
-insert into ksiazka values ('Piotr Wojciechowski', 'Poniedziałek, którego nie było', 4, 4, 203);
-insert into ksiazka values ('Wiktor Woroszylski', 'Cyryl, gdzie jesteś?', 3, 4, 301);
+insert into ksiazka values (1002, 'Danuta Gellnerowa', ' Cukrowe miasteczko', 3, 1, 104);
 
-insert into ksiazka values ('Francesco d'Adamo', 'Iqbal', 3, 5, 302);
-insert into ksiazka values ('Paweł Beręsewicz', 'A niech to czykolada', 5, 5, 101);
-insert into ksiazka values ('Monika Błądek', 'Szary ', 2, 5, 301);
-insert into ksiazka values ('Charles Dickens', 'Oliver Twist', 2, 5, 304);
-insert into ksiazka values ('Charles Dickens', 'Opowieść wigilijna', 5, 5, 403);
-insert into ksiazka values ('Michael Ende', 'Momo', 4, 5, 503);
-insert into ksiazka values ('Antoine de Saint', 'Exupery', 5, 5, 204);
-insert into ksiazka values ('Andrzej Grabowski', 'Wojna na pięknym brzegu', 5, 5, 400);
-insert into ksiazka values ('Ewa Grętkiewicz', 'Dostaliśmy po dziecku', 2, 5, 103);
-insert into ksiazka values ('Joanna Jagiełło', 'Zielone martensy ', 5, 5, 303);
-insert into ksiazka values ('Torill Thorstad Hauger', 'Sigurd, syn Wikinga', 3, 5, 100);
-insert into ksiazka values ('Astrid Lindgren', 'Ronja, córka zbójnika', 5, 5, 503);
-insert into ksiazka values ('Katarzyna Majgier', 'Niedokończony eliksir nieśmiertelności ', 4, 5, 502);
-insert into ksiazka values ('Witold Makowiecki', 'Diossos', 2, 5, 402);
-insert into ksiazka values ('Witold Makowiecki', 'Przygody Meliklesa Greka', 5, 5, 404);
-insert into ksiazka values ('Ferenc Molnar', 'Chłopcy z Placu Broni', 5, 5, 400);
-insert into ksiazka values ('Jerzy Niemczuk', 'Opowieść pod strasznym tytułem', 2, 5, 103);
-insert into ksiazka values ('Zuzanna Orlińska ', 'Ani słowa o Zosi', 5, 5, 204);
-insert into ksiazka values ('Ferdynand Ossendowski', 'Słoń Birara', 2, 5, 400);
-insert into ksiazka values ('Magda Papuzińska', 'Wszystko jest możliwe', 4, 5, 100);
-insert into ksiazka values ('Katherine Paterson', 'Most do Terabithii', 3, 5, 303);
-insert into ksiazka values ('Renata Piątkowska', 'Która to Malala?', 4, 5, 301);
-insert into ksiazka values ('Michel Piquemal', 'Bajki filozoficzne', 4, 5, 100);
-insert into ksiazka values ('Katarzyna Pranić', 'Ela', 4, 5, 104);
-insert into ksiazka values ('Katarzyna Ryrych ', 'O Stephenie Hawkingu, czarnej dziurze i myszach podpodłogowych', 5, 5, 301);
-insert into ksiazka values ('Eric Emmanuel Schmitt', 'Oskar i pani Róża', 4, 5, 102);
-insert into ksiazka values ('Eric Emmanuel Schmitt', 'Dziecko Noego', 2, 5, 101);
-insert into ksiazka values ('Lemony Snicket', 'Seria niefortunnych zdarzeń', 5, 5, 402);
-insert into ksiazka values ('Jerry Spinelli', 'Kraksa', 3, 5, 404);
-insert into ksiazka values ('Marcin Szczygielski', 'Czarny młyn, Arka czasu', 2, 5, 103);
-insert into ksiazka values ('J.R.R. Tolkien', 'Hobbit', 5, 5, 403);
-insert into ksiazka values ('Emilia Waśniowska', 'Oswajam strach', 2, 5, 303);
-insert into ksiazka values ('Jean Webster', 'Tajemniczy opiekun', 3, 5, 300);
-insert into ksiazka values ('Jean Webster', 'Kochany Wrogu', 3, 5, 501);
-insert into ksiazka values ('Łukasz Wierzbicki', 'Drzewo', 4, 5, 201);
-insert into ksiazka values ('Maciej Wojtyszko', 'Bromba i inni', 3, 5, 504);
-insert into ksiazka values ('Juliusz Verne', 'Tajemnicza wyspa', 3, 5, 304);
+insert into ksiazka values (1003, 'Czesław Janczarski', ' Miś Uszatek', 4, 1, 202);
 
-insert into ksiazka values ('Antologia pod red. Grzegorza Leszczyńskiego', 'Po schodach wierszy', 5, 6, 100);
-insert into ksiazka values ('Paulo Coehlo', 'Alchemik', 5, 6, 402);
-insert into ksiazka values ('Arthur Conan Doyle', 'Pies Baskerville'ów', 2, 6, 401);
-insert into ksiazka values ('Ursula K. le Guin', 'Czarnoksiężnik z Archipelagu', 2, 6, 503);
-insert into ksiazka values ('Géza Hegedüs', 'Żeglarz z Miletu', 2, 6, 502);
-insert into ksiazka values ('Barbara Kosmowska', 'Pozłacana rybka #', 4, 6, 401);
-insert into ksiazka values ('Barbara Kosmowska', 'Sezon na zielone kasztany', 5, 6, 302);
-insert into ksiazka values ('Ula Kowalczuk', 'Koń jaki jest każdy widzi, czyli alfabetyczny zbiór 300 konizmów', 5, 6, 302);
-insert into ksiazka values ('Leena Krohn', 'Pelikan. Opowieść z miasta', 3, 6, 102);
-insert into ksiazka values ('Maciej Kuczyński', 'Gwiazdy suchego stepu', 3, 6, 203);
-insert into ksiazka values ('Harper Lee', 'Zabić drozda', 4, 6, 101);
-insert into ksiazka values ('Jurij Olesza', 'Trzech grubasów ', 4, 6, 500);
-insert into ksiazka values ('Joanna Rudniańska', 'Kotka Brygidy', 5, 6, 500);
-insert into ksiazka values ('Katarzyna Ryrych', 'Wyspa mojej siostry', 5, 6, 400);
-insert into ksiazka values ('Marcin Szczygielski', 'Teatr Niewidzialnych Dzieci ', 5, 6, 300);
-insert into ksiazka values ('Dorota Terakowska', 'Córka czarownic', 2, 6, 203);
-insert into ksiazka values ('Anika Thor', 'Prawda czy wyzwanie', 4, 6, 103);
-insert into ksiazka values ('J.R.R. Tolkien', 'Władca pierścieni', 5, 6, 501);
-insert into ksiazka values ('José Mauro de Vasconcelos', 'Moje drzewko pomarańczowe ', 5, 6, 404);
-insert into ksiazka values ('Beata Wróblewska', 'Jabłko Apolejki', 5, 6, 102);
+insert into ksiazka values (1004, 'Czesław Janczarski', ' Gdzie mieszka bajeczka', 4, 1, 404);
 
-insert into ksiazka values ('Pierre Boulle', 'Most na rzece Kwai', 5, 7, 204);
-insert into ksiazka values ('Dave Cousins', '15 dni bez głowy', 4, 7, 302);
-insert into ksiazka values ('Anna Frank', 'Dziennik', 2, 7, 301);
-insert into ksiazka values ('Francis Scott Fitzgerald', 'Wielki Gatsby', 4, 7, 301);
-insert into ksiazka values ('Ruben Gallego', 'Białe na czarnym', 5, 7, 404);
-insert into ksiazka values ('Victor Hugo', 'Nędznicy', 2, 7, 301);
-insert into ksiazka values ('Leszek Kołakowski', '13 bajek z królestwa Lailonii', 4, 7, 502);
-insert into ksiazka values ('Alice Kuipers', 'Życie na drzwiach lodówki', 5, 7, 300);
-insert into ksiazka values ('Yann Martel', 'Życie Pi', 2, 7, 504);
-insert into ksiazka values ('Ewa Nowak', 'Bardzo biała wrona', 4, 7, 502);
-insert into ksiazka values ('Anna Onichimowska', '10 stron świata', 2, 7, 201);
-insert into ksiazka values ('Amos Oz', 'Jak uleczyć fanatyka', 4, 7, 400);
-insert into ksiazka values ('Bolesław Prus', 'Faraon', 4, 7, 301);
-insert into ksiazka values ('Nevil Shute', 'Ostatni brzeg', 3, 7, 504);
-insert into ksiazka values ('Leonie Swann', 'Sprawiedliwość owiec;', 4, 7, 503);
-insert into ksiazka values ('Jan Twardowski', 'Wiersze', 5, 7, 301);
-insert into ksiazka values ('Władysław Bartoszewski', 'Warto być przyzwoitym', 5, 7, 402);
+insert into ksiazka values (1005, 'Czesław Janczarski', ' O smoku Wawelskim', 5, 1, 300);
 
-insert into ksiazka values ('Karen Blixen', 'Pożegnanie z Afryką', 3, 8, 202);
-insert into ksiazka values ('Karen Blixen', 'Uczta Babette', 3, 8, 404);
-insert into ksiazka values ('Guareschi', 'Don Camillo i jego trzódka', 2, 8, 403);
-insert into ksiazka values ('Jerzy Ficowski', 'Lewe strony widoków', 3, 8, 102);
-insert into ksiazka values ('Zbigniew Herbert', 'Martwa natura z wędzidłem', 5, 8, 102);
-insert into ksiazka values ('Zbigniew Herbert', 'Barbarzyńca w ogrodzie', 4, 8, 501);
-insert into ksiazka values ('Zbigniew Herbert', 'Pan Cogito', 2, 8, 203);
-insert into ksiazka values ('Khaled Hosseini', 'Chłopiec z latawcem', 5, 8, 103);
-insert into ksiazka values ('Khaled Hosseini', 'Tysiąc wspaniałych słońc', 2, 8, 404);
-insert into ksiazka values ('Ryszard Kapuściński', 'Cesarz', 3, 8, 201);
-insert into ksiazka values ('Ryszard Kapuściński', 'Imperium', 5, 8, 203);
-insert into ksiazka values ('Mario Vargas Llosa', 'Rozmowa w katedrze', 3, 8, 302);
-insert into ksiazka values ('Gemma Malley', 'Deklaracja', 3, 8, 501);
-insert into ksiazka values ('Gabriel Garcia Marquez', 'Sto lat samotności', 2, 8, 304);
-insert into ksiazka values ('George Orwell', 'Folwark Zwierzęcy', 4, 8, 204);
-insert into ksiazka values ('George Orwell', 'Rok 1984', 3, 8, 403);
-insert into ksiazka values ('Eliza Piotrowska', 'Obczyzno moja', 4, 8, 100);
-insert into ksiazka values ('Peter Schweizer', 'Zwycięstwo. Jak upadł komunizm', 2, 8, 204);
-insert into ksiazka values ('Isaac Bashevis Singer', 'Sztukmistrz z Lublina', 5, 8, 201);
-insert into ksiazka values ('Mariusz Szczygieł', 'Gottland', 5, 8, 400);
-insert into ksiazka values ('Wisława Szymborska', 'Wiersze', 4, 8, 401);
-insert into ksiazka values ('Liao Yiwu', 'Prowadzący umarłych', 3, 8, 104);
+insert into ksiazka values (1006, 'Astrid Lindgren', ' Lotta z ulicy Awanturników', 3, 1, 504);
+
+insert into ksiazka values (1007, 'Sam Mc Bratney', ' Nawet nie wiesz, jak bardzo Cię kocham', 4, 1, 204);
+
+insert into ksiazka values (1008, 'Beata Ostrowicka', ' Lulaki, Pan Czekoladka i przedszkole', 5, 1, 201);
+
+insert into ksiazka values (1009, 'Beata Ostrowicka', ' Ale ja tak chcę!', 4, 1, 502);
+
+insert into ksiazka values (1010, 'Joanna Papuzińska', ' Śpiące wierszyki', 4, 1, 101);
+
+insert into ksiazka values (1011, 'Eliza Piotrowska', ' Bajka o drzewie', 4, 1, 504);
+
+insert into ksiazka values (1012, 'Eliza Piotrowska', ' Bajka o słońcu', 2, 1, 402);
+
+insert into ksiazka values (1013, 'Renata Piątkowska', ' Opowiadania z piaskownicy', 2, 1, 301);
+
+insert into ksiazka values (1014, 'Małgorzata Strzałkowska', ' Zielony, żółty, rudy, brązowy', 4, 1, 304);
+
+insert into ksiazka values (1015, 'Julian Tuwim', ' Wiersze dla dzieci', 4, 1, 103);
+
+insert into ksiazka values (1016, 'Kim Fupz Aakeson', ' Esben i duch Dziadka', 3, 2, 103);
+
+insert into ksiazka values (1017, 'Hans Christian Andersen', ' Baśnie', 2, 2, 104);
+
+insert into ksiazka values (1018, 'Wiera Badalska', ' Ballada o kapryśnej królewnie', 5, 2, 302);
+
+insert into ksiazka values (1019, 'Ivona Březinová', ' Cukierek dla dziadka Tadka', 4, 2, 403);
+
+insert into ksiazka values (1020, 'Jan Brzechwa', ' Pan Drops i jego trupa', 2, 2, 100);
+
+insert into ksiazka values (1021, 'Wanda Chotomska', ' Wiersze', 5, 2, 501);
+
+insert into ksiazka values (1022, 'Wanda Chotomska', ' Pięciopsiaczki', 3, 2, 204);
+
+insert into ksiazka values (1023, 'Carlo Collodi', ' Pinokio', 4, 2, 300);
+
+insert into ksiazka values (1024, 'VaclavĆtvrtek', ' Bajki z mchu i paproci', 5, 2, 301);
+
+insert into ksiazka values (1025, 'VaclavĆtvrtek', ' O gajowym Chrobotku', 2, 2, 501);
+
+insert into ksiazka values (1026, 'VaclavĆtvrtek', ' Podróże furmana Szejtroczka', 3, 2, 402);
+
+insert into ksiazka values (1027, 'Iwona Czarkowska', ' Biuro zagubionych zabawek', 5, 2, 200);
+
+insert into ksiazka values (1028, 'Barbara Gawryluk', ' Dżok, legenda o psiej wierności', 3, 2, 101);
+
+insert into ksiazka values (1029, 'Eva Janikovszky', ' Gdybym był dorosły', 4, 2, 304);
+
+insert into ksiazka values (1030, 'Czesław Janczarski', ' Jak Wojtek został strażakiem', 5, 2, 202);
+
+insert into ksiazka values (1031, 'Grzegorz Janusz', ' Misiostwo świata', 2, 2, 401);
+
+insert into ksiazka values (1032, 'Hanna Januszewska', ' O Pleciudze', 3, 2, 100);
+
+insert into ksiazka values (1033, 'Kęstutis Kasparavičius', ' Mała zima', 2, 2, 200);
+
+insert into ksiazka values (1034, 'Maria Krueger', ' Apolejka i jej osiołek', 3, 2, 303);
+
+insert into ksiazka values (1035, 'Lucyna Krzemieniecka', ' O Jasiu Kapeluszniku', 4, 2, 301);
+
+insert into ksiazka values (1036, 'Tadeusz Kubiak', ' Wiersze na dzień dobry', 3, 2, 304);
+
+insert into ksiazka values (1037, 'Åsa Lind', ' Piaskowy Wilk', 5, 2, 104);
+
+insert into ksiazka values (1038, 'Astrid Lindgren', ' Pippi Pończoszanka', 3, 2, 304);
+
+insert into ksiazka values (1039, 'Astrid Lindgren', ' Emil ze Smalandii', 2, 2, 203);
+
+insert into ksiazka values (1040, 'Beata Majchrzak', ' Opowieść o błękitnym psie, czyli o rzeczach trudnych dla dzieci', 2, 2, 503);
+
+insert into ksiazka values (1041, 'Kornel Makuszyński', ' Przygody Koziołka Matołka', 5, 2, 300);
+
+insert into ksiazka values (1042, 'Patric Mc Donnell', ' TEK. Nowoczesny jaskiniowiec', 5, 2, 300);
+
+insert into ksiazka values (1043, 'Małgorzata Musierowicz', ' Znajomi z zerówki', 3, 2, 301);
+
+insert into ksiazka values (1044, 'Alan A. Milne', ' Kubuś Puchatek, Chatka Puchatka', 3, 2, 200);
+
+insert into ksiazka values (1045, 'Łukasz Olszacki', ' Bajka o tym, jak błędny rycerz nie uratował królewny, a smok przeszedł na wegetarianizm', 5, 2, 500);
+
+insert into ksiazka values (1046, 'Renata Piątkowska', ' Na wszystko jest sposób', 3, 2, 501);
+
+insert into ksiazka values (1047, 'Renata Piątkowska', ' Nie ma nudnych dni', 3, 2, 101);
+
+insert into ksiazka values (1048, 'Gianni Rodari', ' Bajki przez telefon(w tym Historyjki o Alicji, która zawsze wpadała w kłopot)', 3, 2, 404);
+
+insert into ksiazka values (1049, 'Zofia Rogoszówna', ' Dzieci Pana Majstra', 2, 2, 102);
+
+insert into ksiazka values (1050, 'Małgorzata Strzałkowska', ' Leśne Głupki', 5, 2, 104);
+
+insert into ksiazka values (1051, 'Małgorzata Strzałkowska', ' Wiersze do poduchy, Wyliczanki z pustej szklanki', 5, 2, 404);
+
+insert into ksiazka values (1052, 'Anna Świrszczyńska', ' Dziwny tygrys', 4, 2, 404);
+
+insert into ksiazka values (1053, 'Anna Świrszczyńska', ' O chciwym Achmedzie', 5, 2, 302);
+
+insert into ksiazka values (1054, 'Julian Tuwim', ' Pan Maluśkiewicz i wieloryb', 4, 2, 304);
+
+insert into ksiazka values (1055, 'Emilia Waśniowska', ' Kiedy słychać ptaki', 4, 2, 104);
+
+insert into ksiazka values (1056, 'Danuta Wawiłow', ' Wiersze', 2, 2, 500);
+
+insert into ksiazka values (1057, 'Max Velthuijs', ' Żabka i obcy', 4, 2, 204);
+
+insert into ksiazka values (1058, 'Katarzyna Ziemnicka', ' Wielka wyprawa pirat Nata', 4, 2, 503);
+
+insert into ksiazka values (1059, 'Heather Amery', ' Mity greckie dla najmłodszych', 2, 3, 504);
+
+insert into ksiazka values (1060, 'Ludwig Bemelmans', ' Madeline w Paryżu', 3, 3, 501);
+
+insert into ksiazka values (1061, 'Marcin Brykczyński', ' Ni pies, ni wydra', 5, 3, 301);
+
+insert into ksiazka values (1062, 'Marcin Brykczyński', ' 8 podziękowań, Czarno na białym', 4, 3, 500);
+
+insert into ksiazka values (1063, 'Marcin Brykczyński', ' Skąd się biorą dzieci', 5, 3, 501);
+
+insert into ksiazka values (1064, 'Marcin Brykczyński', ' Czary', 4, 3, 502);
+
+insert into ksiazka values (1065, 'Jan Brzechwa', ' Pchła Szachrajka', 5, 3, 102);
+
+insert into ksiazka values (1066, 'Jan Brzechwa', ' Szelmostwa Lisa Witalisa', 3, 3, 500);
+
+insert into ksiazka values (1067, 'Jan Brzechwa', ' Baśń o korsarzu Palemonie', 5, 3, 304);
+
+insert into ksiazka values (1068, 'Sebastian Cichocki', ' S.Z.T.U.K.A. Szalenie zajmując twory utalentowanych i krnąbrnych artystów', 2, 3, 300);
+
+insert into ksiazka values (1069, 'Wanda Chotomska', ' Wanda Chotomska dzieciom', 4, 3, 302);
+
+insert into ksiazka values (1070, 'Maurice Druon', ' Magiczny świat Tistu ', 3, 3, 200);
+
+insert into ksiazka values (1071, 'Jerzy Ficowski', ' Gałązka z drzewa słońca', 3, 3, 100);
+
+insert into ksiazka values (1072, 'Jerzy Ficowski', ' Syrenka', 2, 3, 400);
+
+insert into ksiazka values (1073, 'Jerzy Ficowski', ' Tęcza na niedzielę (i inne wiersze)', 5, 3, 304);
+
+insert into ksiazka values (1074, 'Dorota Gellner', ' Krawcowe', 2, 3, 103);
+
+insert into ksiazka values (1075, 'Dorota Gellner', ' Zając', 5, 3, 403);
+
+insert into ksiazka values (1076, 'Kamil Giżycki', ' Wielkie czyny szympansa Bajbuna Mądrego', 2, 3, 404);
+
+insert into ksiazka values (1077, 'Frances Hodgson Burnett', ' Mała księżniczka', 4, 3, 300);
+
+insert into ksiazka values (1078, 'P.P.Jerszow', ' Konik Garbusek', 5, 3, 503);
+
+insert into ksiazka values (1079, 'Roksana Jędrzejewska', ' Wróbel', 5, 3, 304);
+
+insert into ksiazka values (1080, 'Grzegorz Kasdepke', ' Detektyw Pozytywka', 5, 3, 400);
+
+insert into ksiazka values (1081, 'Erich Kästner', ' 35 maja', 4, 3, 403);
+
+insert into ksiazka values (1082, 'Ludwik Jerzy Kern', ' Wiersze dla dzieci', 3, 3, 402);
+
+insert into ksiazka values (1083, 'Ludwik Jerzy Kern', ' Ludwik Jerzy Kern dzieciom', 4, 3, 103);
+
+insert into ksiazka values (1084, 'Ludwik Jerzy Kern', ' Ferdynand Wspaniały', 5, 3, 300);
+
+insert into ksiazka values (1085, 'Astrid Lindgren', ' Dzieci z Bullerbyn', 3, 3, 502);
+
+insert into ksiazka values (1086, 'Astrid Lindgren', ' Mio, mój Mio', 5, 3, 402);
+
+insert into ksiazka values (1087, 'Edith Nesbit', ' Pięcioro dzieci i coś', 3, 3, 102);
+
+insert into ksiazka values (1088, 'Edith Nesbit', ' Historia Amuletu', 4, 3, 404);
+
+insert into ksiazka values (1089, 'Edith Nesbit', ' Feniks i dywan', 4, 3, 404);
+
+insert into ksiazka values (1090, 'Roman Pisarski', ' Wyrwidąb i Waligóra', 2, 3, 500);
+
+insert into ksiazka values (1091, 'Otfried Preussler', ' Malutka czarownica', 5, 3, 502);
+
+insert into ksiazka values (1092, 'Gianni Rodari', ' Interesy Pana Kota', 5, 3, 100);
+
+insert into ksiazka values (1093, 'Gianni Rodari', ' Opowieśćo Cebulku', 3, 3, 401);
+
+insert into ksiazka values (1094, 'Gianni Rodari', ' Gelsomino w kraju Kłamczuchów', 5, 3, 203);
+
+insert into ksiazka values (1095, 'Michael Roher', ' Wędrowne ptaki', 4, 3, 500);
+
+insert into ksiazka values (1096, 'Michał Rusinek', ' Wierszyki domowe', 3, 3, 104);
+
+insert into ksiazka values (1097, 'Michał Rusinek', ' Wierszyki rodzinne', 3, 3, 401);
+
+insert into ksiazka values (1098, 'Igor Sikirycki', ' Jak drwal królem został', 4, 3, 200);
+
+insert into ksiazka values (1099, 'Barbara Tylicka', ' Generał Ciupinek', 2, 3, 302);
+
+insert into ksiazka values (1100, 'Anne Cath. Westly', ' 8+2 i ciężarówka', 4, 3, 301);
+
+insert into ksiazka values (1101, 'Anne Cath. Westly', ' 8+2 i domek w lesie', 4, 3, 401);
+
+insert into ksiazka values (1102, 'E.B. White', ' Pajęczyna Charlotty', 4, 3, 404);
+
+insert into ksiazka values (1103, 'Magdalena Wiśniewska', ' Mały Saj i wielka przygoda', 3, 3, 201);
+
+insert into ksiazka values (1104, 'Piotr Wojciechowski', ' Z kufra Pana Pompuła', 2, 3, 301);
+
+insert into ksiazka values (1105, 'Piotr Wojciechowski', '  Bajki żółtego psa', 3, 3, 304);
+
+insert into ksiazka values (1106, 'Praca zbiorowa', ' Śpiewająca Lipka. Baśnie Słowian Zachodnich', 5, 3, 403);
+
+insert into ksiazka values (1107, 'Edmund de Amicis', ' Serce', 4, 4, 202);
+
+insert into ksiazka values (1108, 'Zbigniew Batko', ' Z powrotem, czyli fatalne skutki niewłaściwych lektur', 2, 4, 202);
+
+insert into ksiazka values (1109, 'Paweł Beręsewicz', ' Czy wojna jest dla dziewczyn?', 4, 4, 403);
+
+insert into ksiazka values (1110, 'Paweł Beręsewicz', ' Jak zakochałem Kaśkę Kwiatek', 3, 4, 400);
+
+insert into ksiazka values (1111, 'Paweł Beręsewicz', ' Noskawery', 4, 4, 501);
+
+insert into ksiazka values (1112, 'Paul Berna', ' Rycerze złotego runa', 2, 4, 304);
+
+insert into ksiazka values (1113, 'Marcin Brykczyński', ' W każdym z nas są drzwi do nieba', 5, 4, 402);
+
+insert into ksiazka values (1114, 'Marcin Brykczyński', ' Jak się nie bać ortografii', 5, 4, 202);
+
+insert into ksiazka values (1115, 'Marcin Brykczyński', ' Z deszczu pod rynnę', 5, 4, 200);
+
+insert into ksiazka values (1116, 'Marcin Brykczyński', ' Frances Hodgson Burnett', 3, 4, 100);
+
+insert into ksiazka values (1117, 'Andrew Clements', ' Fryndel', 5, 4, 402);
+
+insert into ksiazka values (1118, 'Iwona Chmielewska', ' Pamiętnik Blumki', 2, 4, 200);
+
+insert into ksiazka values (1119, 'Roald Dahl', ' Matylda', 4, 4, 204);
+
+insert into ksiazka values (1120, 'Joanna Fabicka', ' Rutka', 5, 4, 103);
+
+insert into ksiazka values (1121, 'Anna Kamieńska', ' Książka nad książkami', 5, 4, 400);
+
+insert into ksiazka values (1122, 'Emilia Kiereś', ' Brat', 5, 4, 502);
+
+insert into ksiazka values (1123, 'Rudyard Kipling', ' Księga dżungli', 5, 4, 201);
+
+insert into ksiazka values (1124, 'Eric Knight', ' Lassie, wróć!', 4, 4, 101);
+
+insert into ksiazka values (1125, 'Jan Izydor Korzeniowski', ' Chłopcy z zielonych stawów', 5, 4, 403);
+
+insert into ksiazka values (1126, 'Lena Ledoff i Przemysław Dąbrowski', ' My, Psy, czyli czapka admirała Yamamoto', 5, 4, 503);
+
+insert into ksiazka values (1127, 'Astrid Lindgren', ' Bracia Lwie Serce', 5, 4, 204);
+
+insert into ksiazka values (1128, 'Astrid Lindgren', ' Rasmus i włóczęga', 5, 4, 102);
+
+insert into ksiazka values (1129, 'Clive Staples Lewis', ' Opowieści z Narnii', 5, 4, 200);
+
+insert into ksiazka values (1130, 'Olga Masiuk', ' Lenka, Fryderyk i podróże', 2, 4, 504);
+
+insert into ksiazka values (1131, 'Olga Masiuk', ' Tydzień Konstancji', 3, 4, 504);
+
+insert into ksiazka values (1132, 'Anna Onichimowska', ' Dzień czekolady', 3, 4, 100);
+
+insert into ksiazka values (1133, 'Ida Pierelotkin', ' Ala Betka', 3, 4, 401);
+
+insert into ksiazka values (1134, 'Renata Piątkowska', ' Wszystkie moje mamy', 4, 4, 100);
+
+insert into ksiazka values (1135, 'Renata Piątkowska', ' Hebanowe serce', 2, 4, 102);
+
+insert into ksiazka values (1136, 'Gianni Rodari', ' Był sobie dwa razy baron Lamberto', 4, 4, 403);
+
+insert into ksiazka values (1137, 'Katarzyna Ryrych', ' Łopianowe pole', 5, 4, 403);
+
+insert into ksiazka values (1138, 'Katarzyna Ryrych', ' Koniec świata nr 13', 3, 4, 503);
+
+insert into ksiazka values (1139, 'Annie M.G.Schmidt', ' Minu ', 2, 4, 404);
+
+insert into ksiazka values (1140, 'Barbara Stenka', ' Masło przygodowe', 4, 4, 204);
+
+insert into ksiazka values (1141, 'Małgorzata Strzałkowska', ' Zbzikowane wierszyki łamiące języki, Pejzaż z gżegżółką', 2, 4, 203);
+
+insert into ksiazka values (1142, 'Mark Twain', ' Przygody Tomka Sawyera', 4, 4, 400);
+
+insert into ksiazka values (1143, 'Mark Twain', ' Przygody Hucka, Królewicz i żebrak', 5, 4, 103);
+
+insert into ksiazka values (1144, 'Adam Wajrak', ' Wielka księga prawdziwych tropicieli', 3, 4, 303);
+
+insert into ksiazka values (1145, 'Emilia Waśniowska', ' Pamiątki Babuni', 4, 4, 403);
+
+insert into ksiazka values (1146, 'Łukasz Wierzbicki', ' Afryka Kazika,Dziadeki Niedźwiadek, Machiną przez Chiny', 5, 4, 104);
+
+insert into ksiazka values (1147, 'Rafał Witek', ' Klub latających ciotek', 4, 4, 100);
+
+insert into ksiazka values (1148, 'Piotr Wojciechowski', ' Poniedziałek, którego nie było', 4, 4, 503);
+
+insert into ksiazka values (1149, 'Wiktor Woroszylski', ' Cyryl, gdzie jesteś?', 4, 4, 200);
+
+insert into ksiazka values (1150, 'Paweł Beręsewicz', ' A niech to czykolada', 4, 5, 102);
+
+insert into ksiazka values (1151, 'Monika Błądek', ' Szary ', 2, 5, 303);
+
+insert into ksiazka values (1152, 'Charles Dickens', ' Oliver Twist', 2, 5, 104);
+
+insert into ksiazka values (1153, 'Charles Dickens', ' Opowieść wigilijna', 2, 5, 500);
+
+insert into ksiazka values (1154, 'Michael Ende', ' Momo', 5, 5, 401);
+
+insert into ksiazka values (1155, 'Antoine de Saint', ' Exupery', 5, 5, 104);
+
+insert into ksiazka values (1156, 'Andrzej Grabowski', ' Wojna na pięknym brzegu', 3, 5, 403);
+
+insert into ksiazka values (1157, 'Ewa Grętkiewicz', ' Dostaliśmy po dziecku', 2, 5, 201);
+
+insert into ksiazka values (1158, 'Joanna Jagiełło', ' Zielone martensy ', 3, 5, 400);
+
+insert into ksiazka values (1159, 'Torill Thorstad Hauger', ' Sigurd, syn Wikinga', 4, 5, 103);
+
+insert into ksiazka values (1160, 'Astrid Lindgren', ' Ronja, córka zbójnika', 4, 5, 503);
+
+insert into ksiazka values (1161, 'Katarzyna Majgier', ' Niedokończony eliksir nieśmiertelności ', 5, 5, 202);
+
+insert into ksiazka values (1162, 'Witold Makowiecki', ' Diossos', 5, 5, 100);
+
+insert into ksiazka values (1163, 'Witold Makowiecki', ' Przygody Meliklesa Greka', 2, 5, 404);
+
+insert into ksiazka values (1164, 'Ferenc Molnar', ' Chłopcy z Placu Broni', 5, 5, 402);
+
+insert into ksiazka values (1165, 'Jerzy Niemczuk', ' Opowieść pod strasznym tytułem', 2, 5, 200);
+
+insert into ksiazka values (1166, 'Zuzanna Orlińska ', ' Ani słowa o Zosi', 3, 5, 501);
+
+insert into ksiazka values (1167, 'Ferdynand Ossendowski', ' Słoń Birara', 4, 5, 102);
+
+insert into ksiazka values (1168, 'Magda Papuzińska', ' Wszystko jest możliwe', 3, 5, 402);
+
+insert into ksiazka values (1169, 'Katherine Paterson', ' Most do Terabithii', 4, 5, 404);
+
+insert into ksiazka values (1170, 'Renata Piątkowska', ' Która to Malala?', 3, 5, 502);
+
+insert into ksiazka values (1171, 'Michel Piquemal', ' Bajki filozoficzne', 3, 5, 204);
+
+insert into ksiazka values (1172, 'Katarzyna Pranić', ' Ela', 5, 5, 500);
+
+insert into ksiazka values (1173, 'Katarzyna Ryrych ', ' O Stephenie Hawkingu, czarnej dziurze i myszach podpodłogowych', 4, 5, 302);
+
+insert into ksiazka values (1174, 'Eric Emmanuel Schmitt', ' Oskar i pani Róża', 2, 5, 302);
+
+insert into ksiazka values (1175, 'Eric Emmanuel Schmitt', ' Dziecko Noego', 3, 5, 102);
+
+insert into ksiazka values (1176, 'Lemony Snicket', ' Seria niefortunnych zdarzeń', 4, 5, 201);
+
+insert into ksiazka values (1177, 'Jerry Spinelli', ' Kraksa', 2, 5, 201);
+
+insert into ksiazka values (1178, 'Marcin Szczygielski', ' Czarny młyn, Arka czasu', 5, 5, 104);
+
+insert into ksiazka values (1179, 'J.R.R. Tolkien', ' Hobbit', 3, 5, 403);
+
+insert into ksiazka values (1180, 'Emilia Waśniowska', ' Oswajam strach', 2, 5, 304);
+
+insert into ksiazka values (1181, 'Jean Webster', ' Tajemniczy opiekun', 2, 5, 400);
+
+insert into ksiazka values (1182, 'Jean Webster', ' Kochany Wrogu', 4, 5, 104);
+
+insert into ksiazka values (1183, 'Łukasz Wierzbicki', ' Drzewo', 4, 5, 102);
+
+insert into ksiazka values (1184, 'Maciej Wojtyszko', ' Bromba i inni', 3, 5, 302);
+
+insert into ksiazka values (1185, 'Juliusz Verne', ' Tajemnicza wyspa', 5, 5, 503);
+
+insert into ksiazka values (1186, 'Antologia pod red. Grzegorza Leszczyńskiego', ' Po schodach wierszy', 4, 6, 200);
+
+insert into ksiazka values (1187, 'Paulo Coehlo', ' Alchemik', 5, 6, 500);
+
+insert into ksiazka values (1188, 'Ursula K. le Guin', ' Czarnoksiężnik z Archipelagu', 2, 6, 400);
+
+insert into ksiazka values (1189, 'Géza Hegedüs', ' Żeglarz z Miletu', 3, 6, 100);
+
+insert into ksiazka values (1190, 'Barbara Kosmowska', ' Pozłacana rybka #', 5, 6, 203);
+
+insert into ksiazka values (1191, 'Barbara Kosmowska', ' Sezon na zielone kasztany', 4, 6, 204);
+
+insert into ksiazka values (1192, 'Ula Kowalczuk', ' Koń jaki jest każdy widzi, czyli alfabetyczny zbiór 300 konizmów', 3, 6, 403);
+
+insert into ksiazka values (1193, 'Leena Krohn', ' Pelikan. Opowieść z miasta', 4, 6, 400);
+
+insert into ksiazka values (1194, 'Maciej Kuczyński', ' Gwiazdy suchego stepu', 5, 6, 202);
+
+insert into ksiazka values (1195, 'Harper Lee', ' Zabić drozda', 4, 6, 304);
+
+insert into ksiazka values (1196, 'Jurij Olesza', ' Trzech grubasów ', 5, 6, 203);
+
+insert into ksiazka values (1197, 'Joanna Rudniańska', ' Kotka Brygidy', 3, 6, 200);
+
+insert into ksiazka values (1198, 'Katarzyna Ryrych', ' Wyspa mojej siostry', 2, 6, 504);
+
+insert into ksiazka values (1199, 'Marcin Szczygielski', ' Teatr Niewidzialnych Dzieci ', 3, 6, 101);
+
+insert into ksiazka values (1200, 'Dorota Terakowska', ' Córka czarownic', 5, 6, 200);
+
+insert into ksiazka values (1201, 'Anika Thor', ' Prawda czy wyzwanie', 2, 6, 202);
+
+insert into ksiazka values (1202, 'J.R.R. Tolkien', ' Władca pierścieni', 5, 6, 303);
+
+insert into ksiazka values (1203, 'José Mauro de Vasconcelos', ' Moje drzewko pomarańczowe ', 3, 6, 402);
+
+insert into ksiazka values (1204, 'Beata Wróblewska', ' Jabłko Apolejki', 3, 6, 302);
+
+insert into ksiazka values (1205, 'Pierre Boulle', ' Most na rzece Kwai', 3, 7, 400);
+
+insert into ksiazka values (1206, 'Dave Cousins', ' 15 dni bez głowy', 5, 7, 103);
+
+insert into ksiazka values (1207, 'Anna Frank', ' Dziennik', 3, 7, 400);
+
+insert into ksiazka values (1208, 'Francis Scott Fitzgerald', ' Wielki Gatsby', 2, 7, 104);
+
+insert into ksiazka values (1209, 'Ruben Gallego', ' Białe na czarnym', 2, 7, 202);
+
+insert into ksiazka values (1210, 'Victor Hugo', ' Nędznicy', 5, 7, 504);
+
+insert into ksiazka values (1211, 'Leszek Kołakowski', ' 13 bajek z królestwa Lailonii', 5, 7, 203);
+
+insert into ksiazka values (1212, 'Alice Kuipers', ' Życie na drzwiach lodówki', 3, 7, 500);
+
+insert into ksiazka values (1213, 'Yann Martel', ' Życie Pi', 4, 7, 303);
+
+insert into ksiazka values (1214, 'Ewa Nowak', ' Bardzo biała wrona', 5, 7, 500);
+
+insert into ksiazka values (1215, 'Anna Onichimowska', ' 10 stron świata', 2, 7, 201);
+
+insert into ksiazka values (1216, 'Amos Oz', ' Jak uleczyć fanatyka', 5, 7, 500);
+
+insert into ksiazka values (1217, 'Bolesław Prus', ' Faraon', 2, 7, 300);
+
+insert into ksiazka values (1218, 'Nevil Shute', ' Ostatni brzeg', 4, 7, 401);
+
+insert into ksiazka values (1219, 'Leonie Swann', ' Sprawiedliwość owiec;', 3, 7, 304);
+
+insert into ksiazka values (1220, 'Jan Twardowski', ' Wiersze', 2, 7, 101);
+
+insert into ksiazka values (1221, 'Władysław Bartoszewski', ' Warto być przyzwoitym', 5, 7, 103);
+
+insert into ksiazka values (1222, 'Karen Blixen', ' Pożegnanie z Afryką', 4, 8, 203);
+
+insert into ksiazka values (1223, 'Karen Blixen', ' Uczta Babette', 3, 8, 404);
+
+insert into ksiazka values (1224, 'Guareschi', ' Don Camillo i jego trzódka', 3, 8, 102);
+
+insert into ksiazka values (1225, 'Jerzy Ficowski', ' Lewe strony widoków', 5, 8, 300);
+
+insert into ksiazka values (1226, 'Zbigniew Herbert', ' Martwa natura z wędzidłem', 5, 8, 101);
+
+insert into ksiazka values (1227, 'Zbigniew Herbert', ' Barbarzyńca w ogrodzie', 3, 8, 102);
+
+insert into ksiazka values (1228, 'Zbigniew Herbert', ' Pan Cogito', 5, 8, 300);
+
+insert into ksiazka values (1229, 'Khaled Hosseini', ' Chłopiec z latawcem', 5, 8, 302);
+
+insert into ksiazka values (1230, 'Khaled Hosseini', ' Tysiąc wspaniałych słońc', 2, 8, 201);
+
+insert into ksiazka values (1231, 'Ryszard Kapuściński', ' Cesarz', 2, 8, 101);
+
+insert into ksiazka values (1232, 'Ryszard Kapuściński', ' Imperium', 2, 8, 103);
+
+insert into ksiazka values (1233, 'Mario Vargas Llosa', ' Rozmowa w katedrze', 5, 8, 401);
+
+insert into ksiazka values (1234, 'Gemma Malley', ' Deklaracja', 5, 8, 402);
+
+insert into ksiazka values (1235, 'Gabriel Garcia Marquez', ' Sto lat samotności', 5, 8, 400);
+
+insert into ksiazka values (1236, 'George Orwell', ' Folwark Zwierzęcy', 4, 8, 101);
+
+insert into ksiazka values (1237, 'George Orwell', ' Rok 1984', 5, 8, 501);
+
+insert into ksiazka values (1238, 'Eliza Piotrowska', ' Obczyzno moja', 3, 8, 204);
+
+insert into ksiazka values (1239, 'Peter Schweizer', ' Zwycięstwo. Jak upadł komunizm', 3, 8, 304);
+
+insert into ksiazka values (1240, 'Isaac Bashevis Singer', ' Sztukmistrz z Lublina', 4, 8, 201);
+
+insert into ksiazka values (1241, 'Mariusz Szczygieł', ' Gottland', 2, 8, 501);
+
+insert into ksiazka values (1242, 'Wisława Szymborska', ' Wiersze', 3, 8, 201);
+
+insert into ksiazka values (1243, 'Liao Yiwu', ' Prowadzący umarłych', 2, 8, 401);
