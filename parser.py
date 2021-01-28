@@ -10,11 +10,12 @@ with open("books.txt", encoding = "utf-8") as file:
 target_audience = 0
 books = []
 
+book_id = 1000
 for line in data:
-	if line == "\n":
-		continue
+        if line == "\n":
+                continue
 
-	line = line[:-1]
+        line = line[:-1]
 
 	if line[-1] == ':':
 		target_audience = target_audience + 1
@@ -25,7 +26,9 @@ for line in data:
 	titles = re.split("; ", line_data[1])
 
 	for title in titles:
-		books.append((author, title, target_audience))
+            books.append((book_id, author, title, target_audience))
+        
+        book_id = book_id + 1
 
 cities = []
 with open("cities.txt", "r", encoding = "utf-8") as file:
@@ -52,7 +55,7 @@ with open("create_library_assets.sql", "a", encoding = "utf-8") as file:
 	table_name = "miasto"
 	file.write("\n-- ============================== MIASTO ==============================\n\n")
 	for city in cities:
-		file.write("insert into {0} values ({1}, \"{2}\");\n".format(table_name, city[0], city[1]))
+		file.write("insert into {0} values ({1}, '{2}');\n".format(table_name, city[0], city[1]))
 
 	table_name = "biblioteka"
 	last_city_id = '10'
@@ -62,7 +65,7 @@ with open("create_library_assets.sql", "a", encoding = "utf-8") as file:
 			last_city_id = str(int(last_city_id) + 1)
 			file.write("\n")
 
-		file.write("insert into {0} values ({1}, \"Biblioteka {2}\", {3});\n".format(table_name, library[0], library[1], library[2]))
+		file.write("insert into {0} values ({1}, 'Biblioteka {2}', {3});\n".format(table_name, library[0], library[1], library[2]))
 
 	assignments = {}
 	table_name = "ksiazka"
@@ -80,8 +83,8 @@ with open("create_library_assets.sql", "a", encoding = "utf-8") as file:
 			assignments[library_index] = 1
 
 		file.write(
-			"insert into {0} values (\"{1}\", \"{2}\", {3}, {4}, {5});\n"
-			.format(table_name, book[0], book[1], rand(2, 5), book[2], libraries[library_index][0])
+			"insert into {0} values ({1}, '{2}', ' {3}', {4}, {5}, {6}});\n"
+			.format(table_name, book[0], book[1], book[2], rand(2, 5), book[3], libraries[library_index][0])
 		)
 
 	minmax = (420, -1)
