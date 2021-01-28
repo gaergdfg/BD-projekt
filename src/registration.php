@@ -7,7 +7,7 @@
 	<body>
 		<h2>Logowanie</h2>
 
-		<form action="index.html" method="POST">
+		<form action="registration_check.php" method="POST">
 			Login:
 			<input type="TEXT" name="LOGIN" value="">
 			<br><br>
