@@ -12,10 +12,10 @@ books = []
 
 book_id = 1000
 for line in data:
-        if line == "\n":
-                continue
+	if line == "\n":
+		continue
 
-        line = line[:-1]
+	line = line[:-1]
 
 	if line[-1] == ':':
 		target_audience = target_audience + 1
