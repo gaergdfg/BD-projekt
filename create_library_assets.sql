@@ -96,7 +96,7 @@ before delete
 on ksiazka
 for each row
 declare
-	liczba_wypozyczonych number;
+	liczba_wypozyczonych int;
 begin
 	select count(*) into liczba_wypozyczonych from obecnie_wypozyczone where obecnie_wypozyczone.id_ksiazki = :OLD.id_ksiazki;
 
