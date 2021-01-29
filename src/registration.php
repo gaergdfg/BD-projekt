@@ -13,15 +13,15 @@
 			<br><br>
 
 			Haslo:
-			<input type="PASSWORD" name="PASSW" value="">
+			<input type="PASSWORD" name="PASSWORD" value="">
 			<br><br>
 
 			Imie:
-			<input type="TEXT" name="IMIE" value="">
+			<input type="TEXT" name="NAME" value="">
 			<br><br>
 
 			Nazwisko:
-			<input type="TEXT" name="NAZWISKO" value="">
+			<input type="TEXT" name="SURNAME" value="">
 			<br><br>
 
 			<input type="SUBMIT" value="Zarejestruj">
