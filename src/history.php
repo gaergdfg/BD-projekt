@@ -26,7 +26,7 @@
 			$row = oci_fetch_array($query, OCI_BOTH);
 			$id = $row['ID_CZYTELNIKA'];
 
-			$query = oci_parse($connection, "select ksiazka.tytul as tytul, ksiazka.autor as autor, ksiaska.przedzial as przedzial from historia_wypozyczen, ksiazka where historia_wypozyczen.id_czytelnika = :id_ and historia_wypozyczen.id_ksiazki = ksiazka.id_ksiazki");
+			$query = oci_parse($connection, "select ksiazka.tytul as tytul, ksiazka.autor as autor, ksiazka.przedzial as przedzial from historia_wypozyczen, ksiazka where historia_wypozyczen.id_czytelnika = :id_ and historia_wypozyczen.id_ksiazki = ksiazka.id_ksiazki");
 			oci_bind_by_name($query, ":id_", $id);
 			oci_execute($query);
 

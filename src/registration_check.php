@@ -30,7 +30,7 @@
 				// TODO: przekazac informacje, ze juz ktos ma taki login
 				header("Location: registration.php");
 			} else {
-				$query = oci_parse($connection, "select MAX(id) from czytelnik");
+				$query = oci_parse($connection, "select MAX(id_czytelnika) as id from czytelnik");
 				oci_execute($query);
 
 				$row = oci_fetch_array($query, OCI_BOTH);

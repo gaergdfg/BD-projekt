@@ -96,6 +96,11 @@
 			<input type="SUBMIT" value="Zobacz">
 		</form>
 
+		<form action="recommendation.php" method="POST">
+			<label>Sprawdz ksiazki rekomendowane dla Ciebie!</label>
+			<input type="SUBMIT" value="Sprawdz">
+		</form>
+
 		<script>
 			var assignment = <?php echo json_encode($assignment); ?>;
 			$("#city-general").change(function() {
