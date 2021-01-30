@@ -101,6 +101,83 @@
 			<input type="SUBMIT" value="Sprawdz">
 		</form>
 
+		<?php
+			$login = $_SESSION['LOGIN'];
+
+			$query = oci_parse($connection, "select czy_admin from czytelnik where login = :login_");
+			oci_bind_by_name($query, ":login_", $login);
+			oci_execute($query);
+
+			$row = oci_fetch_array($query, OCI_BOTH);
+			$is_admin = $row['CZY_ADMIN'];
+
+			if ($is_admin) {
+				echo "<br><br><br><br><p style=\"color:red\">Administracja:</p>";
+			}
+		?>
+
+		<?php
+			if ($is_admin) {
+				echo "<br>";
+
+				echo "Dodaj ksiazke do zbioru.<br>";
+
+				echo "<form action=\"add_book.php\" method=\"POST\">";
+				echo "<label for=\"library\">Wybierz biblioteke: </label>";
+				echo "<select name=\"LIBRARY\" id=\"library-remove\">";
+				echo "<option value='c'>&nbsp;</option>";
+				foreach ($libraries as $library) {
+					echo "<option value='".$library."'>".$library."</option>";
+				}
+				echo "</select><br>";
+
+				echo "<label>Wpisz tytul ksiazki: </label>";
+				echo "<input type=\"TEXT\" name=\"BOOK\" value=\"\"> ";
+
+				echo "<label>Wpisz autora ksiazki: </label>";
+				echo "<input type=\"TEXT\" name=\"AUTHOR\" value=\"\">";
+				echo "<br>";
+
+				echo "<label>Wprowadz liczba ksiazek: </label>";
+				echo "<input type=\"NUMBER\" name=\"QUANTITY\" value=1 min=1> ";
+
+				echo "<label>Wprowadz poziom czytelniczy: </label>";
+				echo "<input type=\"NUMBER\" name=\"LEVEL\" value=1 min=1 max=8> ";
+				echo "<br>";
+
+				echo "<input type=\"SUBMIT\" value=\"Dodaj\">";
+				echo "</form>";
+				echo "<br>";
+			}
+		?>
+
+		<?php
+			if ($is_admin) {
+				echo "<br>";
+
+				echo "Usun ksiazke ze zbioru.<br>";
+
+				echo "<form action=\"remove_book.php\" method=\"POST\">";
+				echo "<label for=\"library\">Wybierz biblioteke: </label>";
+				echo "<select name=\"LIBRARY\" id=\"library-remove\">";
+				echo "<option value='c'>&nbsp;</option>";
+				foreach ($libraries as $library) {
+					echo "<option value='".$library."'>".$library."</option>";
+				}
+				echo "</select><br>";
+
+				echo "<label>Wpisz tytul ksiazki: </label>";
+				echo "<input type=\"TEXT\" name=\"BOOK\" value=\"\"> ";
+
+				echo "<label>Wpisz autora ksiazki: </label>";
+				echo "<input type=\"TEXT\" name=\"AUTHOR\" value=\"\">";
+				echo "<br>";
+
+				echo "<input type=\"SUBMIT\" value=\"Usun\">";
+				echo "</form>";
+			}
+		?>
+
 		<script>
 			var assignment = <?php echo json_encode($assignment); ?>;
 			$("#city-general").change(function() {
