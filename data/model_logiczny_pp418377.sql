@@ -27,8 +27,11 @@ create table ksiazka(
 
 create table czytelnik(
 	id_czytelnika int not null primary key,
-	imie varchar2(20) not null,
-	nazwisko varchar2(20) not null
+	imie varchar2(50) not null,
+	nazwisko varchar2(50) not null,
+	login varchar2(50) not null,
+	haslo varchar2(50) not null,
+	czy_admin number(1) not null
 );
 
 create table historia_wypozyczen(

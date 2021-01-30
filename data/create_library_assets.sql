@@ -27,8 +27,11 @@ create table ksiazka(
 
 create table czytelnik(
 	id_czytelnika int not null primary key,
-	imie varchar2(20) not null,
-	nazwisko varchar2(20) not null
+	imie varchar2(50) not null,
+	nazwisko varchar2(50) not null,
+	login varchar2(50) not null,
+	haslo varchar2(50) not null,
+	czy_admin number(1) not null
 );
 
 create table historia_wypozyczen(
@@ -43,6 +46,7 @@ create table obecnie_wypozyczone(
 
 
 -- ============================== UPDATE ==============================
+
 create or replace trigger validate_ksiazka_update
 before update
 on ksiazka
@@ -74,6 +78,7 @@ end;
 
 
 -- ============================== REMOVE ==============================
+
 create or replace trigger validate_miasto_remove
 before delete
 on miasto
@@ -92,20 +97,10 @@ begin
 end;
 /
 
-create or replace trigger validate_ksiazka_remove
-before delete
-on ksiazka
-for each row
-declare
-	liczba_wypozyczonych number;
-begin
-	select count(*) into liczba_wypozyczonych from obecnie_wypozyczone where obecnie_wypozyczone.id_ksiazki = :OLD.id_ksiazki;
 
-	if liczba_wypozyczonych <> 0 then
-		raise_application_error(-20000, 'Proba usuniecia ksiazki, ktorej egzemplarze sa obecnie wypozyczone');
-	end if;
-end;
-/
+-- ============================== CZYTELNIK ==============================
+
+insert into czytelnik values (10000, 'Jakub', 'Puchalski', 'kubus', 'puchatek', 1);
 
 
 -- ============================== MIASTO ==============================

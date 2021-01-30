@@ -15,7 +15,7 @@
 			$login = $_POST['LOGIN'];
 			$password = $_POST['PASSWORD'];
 
-			$query = oci_parse($connection, "select * from uzytkownicy where login = '".$login."'");
+			$query = oci_parse($connection, "select * from czytelnik where login = '".$login."'");
 			oci_bind_by_name($query, ":_login", $login);
 			oci_execute($query, OCI_NO_AUTO_COMMIT);
 
@@ -29,6 +29,7 @@
 			}
 
 			if ($success == 1) {
+				$_SESSION['LOGIN'] = $login;
 				header("Location: main_menu.php");
 			} else {
 				header("Location: index.html");

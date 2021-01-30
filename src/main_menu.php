@@ -91,6 +91,11 @@
 			<input type="SUBMIT" value="Wyszukaj">
 		</form>
 
+		<form action="history.php" method="POST">
+			<label>Twoja historia wypozyczen</label>
+			<input type="SUBMIT" value="Zobacz">
+		</form>
+
 		<script>
 			var assignment = <?php echo json_encode($assignment); ?>;
 			$("#city-general").change(function() {
