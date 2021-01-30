@@ -27,7 +27,8 @@
 			}
 			 
 			if ($duplicate) {
-				// TODO: przekazac informacje, ze juz ktos ma taki login
+				$_SESSION['LOGIN_TAKEN'] = true;
+
 				header("Location: registration.php");
 			} else {
 				$query = oci_parse($connection, "select MAX(id_czytelnika) as id from czytelnik");

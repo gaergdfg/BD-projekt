@@ -26,5 +26,16 @@
 
 			<input type="SUBMIT" value="Zarejestruj">
 		</form>
+
+		<?php
+
+			session_start();
+
+			if (isset($_SESSION['LOGIN_TAKEN'])) {
+				echo "<p style=\"color:red\">Uzytkownik o takim login'ie juz istnieje, prosze wybierz inny.</p>";
+				unset($_SESSION['LOGIN_TAKEN']);
+			}
+
+		?>
 	</body>
 </html>

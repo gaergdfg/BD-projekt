@@ -19,6 +19,17 @@
 			<input type="SUBMIT" value="Zaloguj">
 		</form>
 
+		<?php
+
+			session_start();
+
+			if (isset($_SESSION['WRONG_CREDENTIALS'])) {
+				echo "<p style=\"color:red\">Nie znaleziono uzytkownika o takiej kombinacji loginu i hasla.</p>";
+				unset($_SESSION['WRONG_CREDENTIALS']);
+			}
+
+		?>
+
 		<a href="registration.php">Nie masz konta? Zarejestruj sie!<a>
 	</body>
 </html>

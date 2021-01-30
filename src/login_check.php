@@ -19,20 +19,21 @@
 			oci_bind_by_name($query, ":_login", $login);
 			oci_execute($query, OCI_NO_AUTO_COMMIT);
 
-			$success = 0;
+			$success = false;
 
 			while (($row = oci_fetch_array($query, OCI_BOTH))) {
 				if ($row['LOGIN'] == $login && $row['HASLO'] == $password) {
-					$success = 1;
+					$success = true;
 					break;
 				}
 			}
 
-			if ($success == 1) {
+			if ($success) {
 				$_SESSION['LOGIN'] = $login;
 				header("Location: main_menu.php");
 			} else {
-				header("Location: index.html");
+				$_SESSION['WRONG_CREDENTIALS'] = true;
+				header("Location: index.php");
 			}
 		?>
 	</body>
