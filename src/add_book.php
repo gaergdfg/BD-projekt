@@ -40,7 +40,6 @@
 				$query = oci_parse($connection, "select max(id_ksiazki) as id from ksiazka");
 				oci_execute($query);
 				$row = oci_fetch_array($query, OCI_BOTH);
-				var_dump($row);
 				$new_book_id = $row['ID'] + 1;
 
 				$query = oci_parse($connection, "select id_biblioteki as id from biblioteka where nazwa = :library_");
@@ -48,8 +47,6 @@
 				oci_execute($query);
 				$row = oci_fetch_array($query, OCI_BOTH);
 				$library_id = $row['ID'];
-
-				echo $new_book_id, ' ',  $author, ' ', $book, ' ', $quantity, ' ', $level, ' ', $library_id, "<br>";
 
 				$insert = oci_parse($connection, "insert into ksiazka values (:new_book_id_, :author_, :book_, :quantity_, :level_, :library_id_)");
 				oci_bind_by_name($insert, ":new_book_id_", $new_book_id);
@@ -63,7 +60,6 @@
 				oci_commit($connection);
 
 				$err = oci_error();
-				var_dump($err);
 				if ($err) {
 					echo "Wystapil blad:<br>";
 					var_dump(err);
