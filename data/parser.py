@@ -82,7 +82,7 @@ with open("create_library_assets.sql", "a", encoding = "utf-8") as file:
             assignments[library_index] = 1
 
         file.write(
-            "insert into {0} values ({1}, '{2}', ' {3}', {4}, {5}, {6});\n"
+            "insert into {0} values ({1}, '{2}', '{3}', {4}, {5}, {6});\n"
             .format(table_name, book[0], book[1], book[2], rand(2, 5), book[3], libraries[library_index][0])
         )
 

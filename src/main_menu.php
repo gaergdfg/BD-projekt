@@ -38,23 +38,23 @@
 
 		Zobacz wszystkie ksiazki dostepne w naszej ofercie!
 
-		<form action="idk.php">
+		<form action="general_book.php" method="POST">
 			<label for="city">Wybierz miasto: </label>
-			<select name="CITY" id="city">
+			<select name="CITY" id="city-general">
 			<?php
 				echo "<option value='c'>&nbsp;</option>";
 				foreach ($cities as $city) {
-					echo "<option value=".$city.">".$city."</option>";
+					echo "<option value='".$city."'>".$city."</option>";
 				}	
 			?>
 			</select>
 
 			<label for="library">Wybierz biblioteke: </label>
-			<select name="LIBRARY" id="library">
+			<select name="LIBRARY" id="library-general">
 			<?php
 				echo "<option value='c'>&nbsp;</option>";
 				foreach ($libraries as $library) {
-					echo "<option value=".$library.">".$library."</option>";
+					echo "<option value='".$library."'>".$library."</option>";
 				}
 			?>
 			</select>
@@ -62,11 +62,55 @@
 			<input type="SUBMIT" value="Wyszukaj">
 		</form>
 
+		Sprawdz dostepnosc ksiazek w naszej ofercie!
+
+		<form action="specific_book.php" method="POST">
+			<label for="city">Wybierz miasto: </label>
+			<select name="CITY" id="city-specific">
+			<?php
+				echo "<option value='c'>&nbsp;</option>";
+				foreach ($cities as $city) {
+					echo "<option value='".$city."'>".$city."</option>";
+				}	
+			?>
+			</select>
+
+			<label for="library">Wybierz biblioteke: </label>
+			<select name="LIBRARY" id="library-specific">
+			<?php
+				echo "<option value='c'>&nbsp;</option>";
+				foreach ($libraries as $library) {
+					echo "<option value='".$library."'>".$library."</option>";
+				}
+			?>
+			</select>
+
+			<label>Wpisz tytul ksiazki: </label>
+			<input type="TEXT" name="BOOK" value="">
+
+			<input type="SUBMIT" value="Wyszukaj">
+		</form>
+
 		<script>
 			var assignment = <?php echo json_encode($assignment); ?>;
-			$("#city").change(function() {
+			$("#city-general").change(function() {
 				var $this = this;
-				$("#library").children().each(function() {
+				$("#library-general").children().each(function() {
+					$(this).attr("disabled", function() {
+						if (this.text == 'c') {
+							return false;
+						}
+						return assignment[this.text] != $this.value;
+					});
+				});
+			});
+		</script>
+
+		<script>
+			var assignment = <?php echo json_encode($assignment); ?>;
+			$("#city-specific").change(function() {
+				var $this = this;
+				$("#library-specific").children().each(function() {
 					$(this).attr("disabled", function() {
 						if (this.text == 'c') {
 							return false;
